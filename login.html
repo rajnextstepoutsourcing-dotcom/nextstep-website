@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In — NextStep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #070a10;
+      --bg2:       #0b1220;
+      --card:      #0b1426;
+      --card2:     #0f1a2e;
+      --border:    rgba(255,255,255,.10);
+      --border2:   rgba(255,255,255,.06);
+      --text:      #f2f6ff;
+      --muted:     #a9b6cc;
+      --muted2:    #6b7fa0;
+      --primary:   #2563eb;
+      --primary2:  #3b82f6;
+      --glow:      rgba(37,99,235,.35);
+      --danger:    #ef4444;
+      --ok:        #22c55e;
+      --radius:    14px;
+      --radius-sm: 10px;
+      --font-head: 'Sora', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+    }
+
+    /* Radial glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -160px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(37,99,235,.13) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ---- Navbar ---- */
+    nav {
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid var(--border2);
+      background: rgba(7,10,16,.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 0 18px var(--glow);
+    }
+
+    .logo-text {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.3px;
+    }
+
+    .logo-text span { color: var(--primary2); }
+
+    .nav-back {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: color .15s, border-color .15s;
+    }
+
+    .nav-back:hover { color: var(--text); border-color: rgba(255,255,255,.22); }
+
+    /* ---- Main layout ---- */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-wrap {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* ---- Header ---- */
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .login-header h1 {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 8px;
+    }
+
+    .login-header p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ---- Card ---- */
+    .login-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 32px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+    }
+
+    /* ---- Form elements ---- */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+      color: var(--muted2);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px 12px 40px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    .form-group input::placeholder { color: var(--muted2); }
+
+    .form-group input:focus {
+      border-color: var(--primary2);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.20);
+    }
+
+    .form-group input.error {
+      border-color: rgba(239,68,68,.55);
+      box-shadow: 0 0 0 3px rgba(239,68,68,.12);
+    }
+
+    /* Password toggle */
+    .pw-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--muted2);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px;
+      line-height: 1;
+      transition: color .15s;
+    }
+
+    .pw-toggle:hover { color: var(--text); }
+
+    /* Row: Remember me + Forgot password */
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .remember-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .remember-wrap input[type="checkbox"] {
+      accent-color: var(--primary2);
+      width: 15px; height: 15px;
+      cursor: pointer;
+    }
+
+    .remember-wrap span {
+      font-size: 13px;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    .forgot-link {
+      font-size: 13px;
+      color: var(--primary2);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color .15s;
+    }
+
+    .forgot-link:hover { color: #60a5fa; text-decoration: underline; }
+
+    /* Submit button */
+    .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      color: #fff;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: filter .15s, transform .12s, box-shadow .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--glow);
+    }
+
+    .btn-submit:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+    }
+
+    /* Spinner inside button */
+    .btn-spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,.30);
+      border-top-color: #fff;
+      border-radius: 999px;
+      animation: spin .7s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Error message */
+    .error-msg {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: rgba(239,68,68,.10);
+      border: 1px solid rgba(239,68,68,.25);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      font-size: 13px;
+      color: #fca5a5;
+      margin-bottom: 16px;
+    }
+
+    .error-msg.show { display: flex; }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider span {
+      font-size: 12px;
+      color: var(--muted2);
+      white-space: nowrap;
+    }
+
+    /* Footer note */
+    .login-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .login-footer a {
+      color: var(--primary2);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-footer a:hover { text-decoration: underline; }
+
+    /* Trust badges */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border2);
+      padding: 18px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    /* Forgot password modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, color .15s;
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,.10); color: var(--text); }
+
+    .modal h2 {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -.02em;
+    }
+
+    .modal p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .modal-success {
+      display: none;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    .modal-success.show { display: block; }
+    .modal-form.hide { display: none; }
+
+    .modal-success-icon {
+      width: 50px; height: 50px;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.25);
+      border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 14px;
+    }
+
+    .modal-success h3 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .modal-success p { margin-bottom: 0; }
+
+    @media (max-width: 480px) {
+      .login-card { padding: 28px 20px; }
+      .modal { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span class="logo-text">Next<span>Step</span></span>
+      </a>
+      <a href="index.html" class="nav-back">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main>
+    <div class="login-wrap">
+
+      <div class="login-header">
+        <div class="login-logo-icon">⚡</div>
+        <h1>Welcome back</h1>
+        <p>Log in to your NextStep dashboard</p>
+      </div>
+
+      <div class="login-card">
+
+        <!-- Error message -->
+        <div class="error-msg" id="errorMsg">
+          <span>⚠</span>
+          <span id="errorText">Invalid email or password. Please try again.</span>
+        </div>
+
+        <form id="loginForm" action="/login" method="POST" novalidate>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Work Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@company.co.uk"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Your password"
+                autocomplete="current-password"
+                required
+              />
+              <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">👁</button>
+            </div>
+          </div>
+
+          <!-- Remember me + Forgot password -->
+          <div class="form-row">
+            <label class="remember-wrap">
+              <input type="checkbox" name="remember" id="rememberMe" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-link" id="forgotLink">Forgot password?</a>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit" id="loginBtn">
+            <div class="btn-spinner" id="btnSpinner"></div>
+            <span id="btnText">Log In</span>
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- Register prompt -->
+      <div class="login-footer">
+        Don't have an account? <a href="register.html">Request access</a>
+      </div>
+
+      <!-- Trust row -->
+      <div class="trust-row">
+        <div class="trust-item">🔒 Secure login</div>
+        <div class="trust-item">🇬🇧 UK hosted</div>
+        <div class="trust-item">✓ GDPR compliant</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 NextStep Automation Ltd &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+  </footer>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" id="forgotModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+
+      <div class="modal-form" id="modalForm">
+        <h2>Reset your password</h2>
+        <p>Enter your work email and we'll send you a link to reset your password.</p>
+
+        <form id="forgotForm" action="/forgot-password" method="POST" novalidate>
+          <div class="form-group">
+            <label for="resetEmail">Work Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input
+                type="email"
+                id="resetEmail"
+                name="email"
+                placeholder="you@company.co.uk"
+                required
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn-submit" id="resetBtn">
+            <div class="btn-spinner" id="resetSpinner"></div>
+            <span id="resetBtnText">Send Reset Link</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="modal-success" id="modalSuccess">
+        <div class="modal-success-icon">✓</div>
+        <h3>Check your inbox</h3>
+        <p>If that email is registered, you'll receive a reset link shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---- Password show/hide ----
+    const pwInput = document.getElementById('password');
+    const pwToggle = document.getElementById('pwToggle');
+    pwToggle.addEventListener('click', () => {
+      const isHidden = pwInput.type === 'password';
+      pwInput.type = isHidden ? 'text' : 'password';
+      pwToggle.textContent = isHidden ? '🙈' : '👁';
+    });
+
+    // ---- Login form (frontend validation + loading state) ----
+    const loginForm = document.getElementById('loginForm');
+    const loginBtn  = document.getElementById('loginBtn');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const btnText    = document.getElementById('btnText');
+    const errorMsg   = document.getElementById('errorMsg');
+    const errorText  = document.getElementById('errorText');
+    const emailInput = document.getElementById('email');
+    const passInput  = document.getElementById('password');
+
+    loginForm.addEventListener('submit', (e) => {
+      // Clear previous errors
+      errorMsg.classList.remove('show');
+      emailInput.classList.remove('error');
+      passInput.classList.remove('error');
+
+      let valid = true;
+
+      if (!emailInput.value.trim() || !/\S+@\S+\.\S+/.test(emailInput.value)) {
+        emailInput.classList.add('error');
+        valid = false;
+      }
+
+      if (!passInput.value.trim()) {
+        passInput.classList.add('error');
+        valid = false;
+      }
+
+      if (!valid) {
+        e.preventDefault();
+        errorText.textContent = 'Please enter a valid email and password.';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      // Show loading state — form will submit naturally to backend
+      loginBtn.disabled = true;
+      btnSpinner.style.display = 'block';
+      btnText.textContent = 'Logging in…';
+    });
+
+    // ---- Forgot password modal ----
+    const forgotLink  = document.getElementById('forgotLink');
+    const forgotModal = document.getElementById('forgotModal');
+    const modalClose  = document.getElementById('modalClose');
+    const forgotForm  = document.getElementById('forgotForm');
+    const modalForm   = document.getElementById('modalForm');
+    const modalSuccess = document.getElementById('modalSuccess');
+    const resetBtn    = document.getElementById('resetBtn');
+    const resetSpinner = document.getElementById('resetSpinner');
+    const resetBtnText = document.getElementById('resetBtnText');
+
+    forgotLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      forgotModal.classList.add('open');
+    });
+
+    modalClose.addEventListener('click', () => {
+      forgotModal.classList.remove('open');
+    });
+
+    forgotModal.addEventListener('click', (e) => {
+      if (e.target === forgotModal) forgotModal.classList.remove('open');
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') forgotModal.classList.remove('open');
+    });
+
+    forgotForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('resetEmail').value.trim();
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        document.getElementById('resetEmail').classList.add('error');
+        return;
+      }
+      // Show loading
+      resetBtn.disabled = true;
+      resetSpinner.style.display = 'block';
+      resetBtnText.textContent = 'Sending…';
+
+      // Simulate — replace with real API call when backend is ready
+      setTimeout(() => {
+        modalForm.classList.add('hide');
+        modalSuccess.classList.add('show');
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
