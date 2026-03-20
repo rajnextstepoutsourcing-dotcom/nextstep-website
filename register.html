@@ -128,7 +128,7 @@
         </div>
 
         <div id="formWrap">
-          <form id="regForm" action="/register" method="POST" novalidate>
+          <form id="regForm" action="https://nextstep-backend-e75l.onrender.com/auth/register" method="POST" novalidate>
 
             <div class="form-grid">
               <div class="form-group">
@@ -326,7 +326,7 @@
       btnSpinner.style.display = 'block';
       btnText.textContent = 'Submitting…';
 
-      // Submit to backend — replace with fetch() when backend ready
+      // Submits to NextStep backend
       // For now simulate success
       setTimeout(() => {
         document.getElementById('formWrap').style.display = 'none';

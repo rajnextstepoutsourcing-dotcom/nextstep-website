@@ -542,7 +542,7 @@
           <span id="errorText">Invalid email or password. Please try again.</span>
         </div>
 
-        <form id="loginForm" action="/login" method="POST" novalidate>
+        <form id="loginForm" action="https://nextstep-backend-e75l.onrender.com/auth/login" method="POST" novalidate>
 
           <!-- Email -->
           <div class="form-group">
@@ -625,7 +625,7 @@
         <h2>Reset your password</h2>
         <p>Enter your work email and we'll send you a link to reset your password.</p>
 
-        <form id="forgotForm" action="/forgot-password" method="POST" novalidate>
+        <form id="forgotForm" action="https://nextstep-backend-e75l.onrender.com/auth/forgot-password" method="POST" novalidate>
           <div class="form-group">
             <label for="resetEmail">Work Email</label>
             <div class="input-wrap">
@@ -699,7 +699,7 @@
         return;
       }
 
-      // Show loading state — form will submit naturally to backend
+      // Submits to NextStep backend
       loginBtn.disabled = true;
       btnSpinner.style.display = 'block';
       btnText.textContent = 'Logging in…';
@@ -746,7 +746,7 @@
       resetSpinner.style.display = 'block';
       resetBtnText.textContent = 'Sending…';
 
-      // Simulate — replace with real API call when backend is ready
+      // Submits to NextStep backend
       setTimeout(() => {
         modalForm.classList.add('hide');
         modalSuccess.classList.add('show');
