@@ -1,0 +1,18 @@
+NEXTSTEP COMPLIANCE — PENDING WORK BEFORE GO-LIVE
+
+Frontend
+- Connect demo form to a real endpoint or disable live submission
+- Final review on mobile and small screens
+- Final proofread of about/login/register/legal pages after deployment
+
+Backend
+- Deploy corrected backend with working /auth routes
+- Test register -> approve -> assign tokens -> login
+- Test dashboard -> tool launch flow
+- Test token deduction and job history
+- Test ownership/security on tool results
+
+Go-live
+- Domain
+- Business email
+- Final SSL / DNS checks

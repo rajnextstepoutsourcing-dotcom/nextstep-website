@@ -3,341 +3,1729 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NextStep Compliance — Healthcare Compliance Assistant</title>
+  <title>NextStep Compliance — UK Healthcare Compliance Assistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-:root{
-  --bg:#07101d;--bg2:#0c1728;--panel:#0d1b31;--panel2:#112240;--border:rgba(255,255,255,.10);
-  --text:#eef4ff;--muted:#a7b7d1;--muted2:#6f86a8;--primary:#3b82f6;--primary2:#60a5fa;
-  --green:#22c55e;--amber:#f59e0b;--danger:#ef4444;--shadow:0 20px 60px rgba(0,0,0,.35);
-  --radius:18px;--max:1180px;--font-head:'Sora',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;
-}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{
-  margin:0;font-family:var(--font-body);color:var(--text);background:
-  radial-gradient(circle at top left, rgba(59,130,246,.18), transparent 30%),
-  radial-gradient(circle at top right, rgba(37,99,235,.14), transparent 24%),
-  linear-gradient(180deg, var(--bg), #050b15 70%);
-  line-height:1.6;
-}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-.container{width:min(var(--max), calc(100% - 2rem)); margin:0 auto}
-.site-header{position:sticky;top:0;z-index:50;background:rgba(7,16,29,.78);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
-.brand{display:flex;align-items:center;gap:.8rem;font-family:var(--font-head);font-weight:700;letter-spacing:.2px}
-.brand-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#0ea5e9);display:grid;place-items:center;box-shadow:0 10px 30px rgba(59,130,246,.28);font-weight:800}
-.brand small{display:block;font-family:var(--font-body);font-size:.74rem;color:var(--muted)}
-.nav-links{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap}
-.nav-links a{color:var(--muted);font-weight:500}
-.nav-links a:hover{color:var(--text)}
-.btn,.btn-ghost,.btn-danger{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:12px;
-  padding:.85rem 1.15rem;font-weight:700;border:1px solid transparent;transition:.2s ease;cursor:pointer
-}
-.btn{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;box-shadow:0 12px 28px rgba(59,130,246,.22)}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
-.btn-ghost{border-color:var(--border);color:var(--text);background:rgba(255,255,255,.03)}
-.btn-ghost:hover{background:rgba(255,255,255,.06)}
-.btn-danger{background:#7f1d1d;color:#fff}
-.hero{padding:4.5rem 0 3rem}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
-.kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .7rem;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.26);color:#d7e8ff;font-weight:600;font-size:.9rem}
-.hero h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.05;margin:1rem 0}
-.hero p.lead{font-size:1.08rem;color:var(--muted);max-width:62ch}
-.cta-row{display:flex;gap:.9rem;flex-wrap:wrap;margin:1.5rem 0 1rem}
-.meta-row{display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.94rem}
-.grid3,.grid4,.grid2{display:grid;gap:1rem}
-.grid4{grid-template-columns:repeat(4,1fr)} .grid3{grid-template-columns:repeat(3,1fr)} .grid2{grid-template-columns:repeat(2,1fr)}
-.card{background:linear-gradient(180deg, rgba(17,34,64,.86), rgba(11,24,45,.86));border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;box-shadow:var(--shadow)}
-.card h3{font-family:var(--font-head);margin:.2rem 0 .6rem}
-.card p{color:var(--muted);margin:.2rem 0}
-.section{padding:1.4rem 0 3rem}
-.section h2{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.5rem);margin:0 0 .55rem}
-.section .sub{color:var(--muted);max-width:70ch;margin:0 0 1.2rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
-.stat{padding:1rem 1.1rem;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--border)}
-.stat strong{display:block;font-family:var(--font-head);font-size:1.35rem;margin-bottom:.25rem}
-.feature-list,.clean-list{margin:.8rem 0 0;padding-left:1.1rem;color:var(--muted)}
-.feature-list li,.clean-list li{margin:.45rem 0}
-.tool-tag{display:inline-flex;padding:.3rem .55rem;border-radius:999px;background:rgba(59,130,246,.15);border:1px solid rgba(96,165,250,.22);color:#d9eaff;font-size:.82rem;font-weight:600}
-.checks{display:grid;gap:.8rem}
-.check{display:flex;gap:.7rem;align-items:flex-start}
-.check i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:999px;background:rgba(34,197,94,.15);color:#8bffb1;font-style:normal;font-weight:800;flex:0 0 auto}
-.note{padding:1rem 1.1rem;border-left:3px solid var(--primary);background:rgba(59,130,246,.08);border-radius:12px;color:#dce8ff}
-.callout{padding:1.1rem 1.2rem;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
-.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.field{display:grid;gap:.45rem}
-label{font-weight:600;color:#dfe9f9}
-input,select,textarea{
-  width:100%;border-radius:12px;border:1px solid var(--border);background:#081222;color:var(--text);
-  padding:.92rem 1rem;font:inherit
-}
-textarea{min-height:120px;resize:vertical}
-small.muted, .muted{color:var(--muted)}
-footer{padding:2.2rem 0 3rem;border-top:1px solid rgba(255,255,255,.06);margin-top:2rem}
-.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:1.5rem}
-.footer-links{display:grid;gap:.5rem}
-.footer-links a{color:var(--muted)}
-.footer-links a:hover{color:var(--text)}
-.notice{font-size:.9rem;color:var(--muted)}
-.badge-line{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
-.badge{display:inline-flex;align-items:center;gap:.35rem;border-radius:999px;padding:.4rem .7rem;background:rgba(255,255,255,.04);border:1px solid var(--border);color:#dce8ff;font-size:.85rem}
-.video-box{aspect-ratio:16/9;border-radius:18px;border:1px dashed rgba(96,165,250,.35);display:grid;place-items:center;background:linear-gradient(180deg,rgba(59,130,246,.08),rgba(255,255,255,.02));text-align:center;padding:1.4rem}
-.legal h3{font-family:var(--font-head);margin:1.35rem 0 .55rem}
-.legal p,.legal li{color:var(--muted)}
-.legal ul{padding-left:1.2rem}
-.auth-wrap{min-height:100vh;display:grid;place-items:center;padding:2rem 0}
-.auth-card{width:min(720px, calc(100% - 2rem));}
-.cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:80;display:none}
-.cookie-inner{width:min(920px,100%);margin:0 auto;padding:1rem 1.1rem;border-radius:18px;border:1px solid var(--border);background:rgba(6,13,24,.96);box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;justify-content:space-between}
-.cookie-actions{display:flex;gap:.7rem;flex-shrink:0}
-.hero-panel{padding:1.35rem}
-.icon-box{width:46px;height:46px;border-radius:14px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.22);display:grid;place-items:center;font-size:1.25rem}
-hr.sep{border:none;border-top:1px solid rgba(255,255,255,.06);margin:1.4rem 0}
-@media (max-width: 960px){
-  .hero-grid,.grid4,.grid3,.grid2,.stats,.footer-grid,.form-grid{grid-template-columns:1fr}
-  .nav{align-items:flex-start}
-  .nav-links{justify-content:flex-start}
-  .cookie-inner{display:grid}
-}
-</style>
+    /* =============================================
+       NEXTSTEP — Design System (DBS Dark Theme)
+       ============================================= */
+    :root {
+      --bg:        #070a10;
+      --bg2:       #0b1220;
+      --card:      #0b1426;
+      --card2:     #0f1a2e;
+      --border:    rgba(255,255,255,.10);
+      --border2:   rgba(255,255,255,.06);
+      --text:      #f2f6ff;
+      --muted:     #a9b6cc;
+      --muted2:    #6b7fa0;
+      --primary:   #2563eb;
+      --primary2:  #3b82f6;
+      --glow:      rgba(37,99,235,.35);
+      --glow2:     rgba(59,130,246,.18);
+      --ok:        #22c55e;
+      --warn:      #f59e0b;
+      --radius:    14px;
+      --radius-sm: 10px;
+      --font-head: 'Sora', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ---- Noise texture overlay ---- */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+    }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; position: relative; }
+
+    /* =============================================
+       NAVBAR
+       ============================================= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,10,16,.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 0 18px var(--glow);
+    }
+
+    .logo-text {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.3px;
+    }
+
+    .logo-text span { color: var(--primary2); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: color .15s, background .15s;
+    }
+
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .15s, background .15s;
+      font-family: var(--font-body);
+    }
+
+    .btn-ghost:hover { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.05); }
+
+    .btn-primary {
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: filter .15s, transform .12s, box-shadow .15s;
+      font-family: var(--font-body);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--glow);
+    }
+
+    .btn-large {
+      padding: 13px 32px;
+      font-size: 15px;
+      border-radius: var(--radius);
+    }
+
+    .btn-xl {
+      padding: 15px 38px;
+      font-size: 16px;
+      border-radius: var(--radius);
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 820px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px 18px;
+      gap: 4px;
+    }
+
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--text); }
+
+    /* =============================================
+       HERO
+       ============================================= */
+    .hero {
+      position: relative;
+      padding: 110px 0 90px;
+      overflow: hidden;
+    }
+
+    /* Radial glow behind hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(37,99,235,.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(37,99,235,.40);
+      border-radius: 999px;
+      background: rgba(37,99,235,.10);
+      font-size: 13px;
+      color: var(--primary2);
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 999px;
+      background: var(--ok);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,.4); }
+      50% { opacity: .85; box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -.04em;
+      margin-bottom: 22px;
+      max-width: 820px;
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(135deg, var(--primary2) 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .trust-item svg { color: var(--ok); flex-shrink: 0; }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 70px;
+    }
+
+    .stat-item {
+      background: var(--card);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-num span { color: var(--primary2); }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* =============================================
+       SECTION HEADERS
+       ============================================= */
+    .section { padding: 90px 0; }
+    .section-alt { background: var(--bg2); }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary2);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 14px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 18px; height: 2px;
+      background: var(--primary2);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -.03em;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .section-head { margin-bottom: 56px; }
+    .section-head.center { text-align: center; }
+    .section-head.center .section-label { justify-content: center; }
+    .section-head.center .section-sub { margin: 0 auto; }
+
+    /* =============================================
+       HOW IT WORKS
+       ============================================= */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .step {
+      background: var(--card);
+      padding: 40px 32px;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: var(--font-head);
+      font-size: 56px;
+      font-weight: 800;
+      color: rgba(37,99,235,.15);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -.04em;
+    }
+
+    .step-icon {
+      width: 46px; height: 46px;
+      background: rgba(37,99,235,.12);
+      border: 1px solid rgba(37,99,235,.25);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -.02em;
+    }
+
+    .step p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    @media (max-width: 720px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       TOOLS GRID
+       ============================================= */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--primary2));
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .tool-card:hover {
+      border-color: rgba(37,99,235,.35);
+      box-shadow: 0 20px 50px rgba(0,0,0,.4), 0 0 0 1px rgba(37,99,235,.12);
+      transform: translateY(-3px);
+    }
+
+    .tool-card:hover::before { opacity: 1; }
+
+    .tool-icon {
+      width: 50px; height: 50px;
+      border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      background: rgba(37,99,235,.12);
+      border: 1px solid rgba(37,99,235,.22);
+    }
+
+    .tool-card h3 {
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -.02em;
+    }
+
+    .tool-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .tool-features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tool-feature {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .tool-feature::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: var(--ok);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 720px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       PRICING TEASER
+       ============================================= */
+
+    .approved-tools-wrap { max-width: 1380px; margin: 0 auto; }
+    .approved-tools-head { text-align:center; margin-bottom: 34px; }
+    .approved-tools-label {
+      display:flex; align-items:center; justify-content:center; gap:16px;
+      color: var(--primary2); text-transform: uppercase; letter-spacing:.14em;
+      font-size:14px; font-weight:700; margin-bottom: 20px;
+    }
+    .approved-tools-label::before, .approved-tools-label::after {
+      content:''; display:block; width:160px; max-width:22vw; height:1px;
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,.6), transparent);
+    }
+    .approved-tools-title {
+      max-width: 1120px; margin: 0 auto; font-size: 26px; line-height:1.45;
+      color: var(--muted); font-weight: 500;
+    }
+    .approved-tools-title strong { color: var(--text); font-weight: 800; }
+    .approved-tools-grid {
+      display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    }
+    .approved-tool-card {
+      position: relative; overflow:hidden; min-height: 620px;
+      background: linear-gradient(180deg, rgba(10,25,61,.96), rgba(8,18,45,.96));
+      border:1px solid rgba(59,130,246,.22); border-radius: 26px;
+      padding: 24px 24px 28px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 10px 30px rgba(0,0,0,.18);
+    }
+    .approved-tool-chip {
+      display:inline-flex; align-items:center; padding: 10px 16px; border-radius:999px;
+      font-size:15px; font-weight:600; color:#d8e7ff; background: rgba(18,49,117,.6);
+      border:1px solid rgba(59,130,246,.28); margin-bottom: 18px;
+    }
+    .approved-tool-card h3 {
+      font-family: var(--font-head); font-size: 28px; line-height:1.12;
+      letter-spacing: -.03em; margin: 0 0 18px; min-height: 74px;
+    }
+    .approved-tool-visual {
+      position:relative; height: 168px; margin: 8px 0 18px;
+      border-radius: 24px;
+      background: radial-gradient(circle at 50% 65%, rgba(37,99,235,.22), transparent 52%),
+                  radial-gradient(circle at 50% 100%, rgba(56,189,248,.18), transparent 40%);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .approved-tool-visual::after {
+      content:''; position:absolute; left:18px; right:18px; bottom:26px; height:2px;
+      background: radial-gradient(circle, rgba(56,189,248,.85), rgba(56,189,248,.15) 55%, transparent 75%);
+      filter: blur(1px);
+    }
+    .approved-tool-visual svg { width: 165px; height: 165px; filter: drop-shadow(0 8px 18px rgba(37,99,235,.35)); }
+    .approved-tool-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px; }
+    .approved-tool-list li {
+      position:relative; padding-left: 22px; font-size: 18px; line-height:1.55; color:#cfdef6;
+    }
+    .approved-tool-list li::before {
+      content:''; position:absolute; left:0; top:12px; width:7px; height:7px; border-radius:999px;
+      background:#4ea1ff; box-shadow:0 0 0 4px rgba(78,161,255,.08);
+    }
+    .approved-tool-list strong { color:#ffffff; font-weight:800; }
+    @media (max-width: 1260px) {
+      .approved-tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .approved-tool-card { min-height: unset; }
+    }
+    @media (max-width: 760px) {
+      .approved-tools-grid { grid-template-columns: 1fr; }
+      .approved-tools-title { font-size: 22px; }
+      .approved-tool-card h3 { font-size: 24px; min-height: unset; }
+      .approved-tool-list li { font-size: 16px; }
+    }
+
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid rgba(37,99,235,.25);
+      border-radius: 20px;
+      padding: 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 300px;
+      background: radial-gradient(ellipse, rgba(37,99,235,.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .pricing-card h2 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -.03em;
+    }
+
+    .pricing-card p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .token-chips {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .token-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(0,0,0,.18);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .token-chip-dot {
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--primary2);
+    }
+
+    /* =============================================
+       TESTIMONIALS
+       ============================================= */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .testi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+      color: var(--warn);
+      font-size: 14px;
+    }
+
+    .testi-card blockquote {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.20);
+      border: 1px solid rgba(37,99,235,.30);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary2);
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .author-role {
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    @media (max-width: 860px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       FAQ
+       ============================================= */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      text-align: left;
+      padding: 18px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: background .15s;
+    }
+
+    .faq-q:hover { background: rgba(255,255,255,.04); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      color: var(--muted);
+      transition: transform .2s;
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+    }
+
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    .faq-a-inner {
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--border2);
+      padding-top: 14px;
+    }
+
+    /* =============================================
+       DEMO / CTA SECTION
+       ============================================= */
+    .demo-section {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-section::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(37,99,235,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .demo-box {
+      background: var(--card);
+      border: 1px solid rgba(37,99,235,.20);
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .demo-left {
+      padding: 52px 48px;
+    }
+
+    .demo-left h2 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -.03em;
+      line-height: 1.2;
+    }
+
+    .demo-left p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+
+    .demo-trust {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .demo-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .demo-trust-icon {
+      width: 28px; height: 28px;
+      background: rgba(34,197,94,.10);
+      border: 1px solid rgba(34,197,94,.20);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .demo-right {
+      background: var(--bg2);
+      border-left: 1px solid var(--border);
+      padding: 52px 48px;
+    }
+
+    .demo-right h3 {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -.02em;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group select {
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+      width: 100%;
+    }
+
+    .form-group input::placeholder { color: var(--muted2); }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--primary2);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.20);
+    }
+
+    .form-group select option { background: var(--card); }
+
+    .form-tools-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .form-tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tool-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+      font-size: 13px;
+    }
+
+    .tool-checkbox:has(input:checked) {
+      border-color: rgba(37,99,235,.45);
+      background: rgba(37,99,235,.10);
+    }
+
+    .tool-checkbox input {
+      accent-color: var(--primary2);
+      width: auto;
+      flex-shrink: 0;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      color: #fff;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: filter .15s, transform .12s, box-shadow .15s;
+      margin-top: 6px;
+    }
+
+    .form-submit:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--glow);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--muted2);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .form-success.show { display: block; }
+    .form-fields.hide { display: none; }
+
+    .success-icon {
+      width: 60px; height: 60px;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.25);
+      border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 18px;
+    }
+
+    .form-success h4 {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .form-success p { font-size: 14px; color: var(--muted); }
+
+    @media (max-width: 820px) {
+      .demo-box { grid-template-columns: 1fr; }
+      .demo-right { border-left: none; border-top: 1px solid var(--border); }
+      .demo-left, .demo-right { padding: 36px 28px; }
+    }
+
+    /* =============================================
+       FOOTER
+       ============================================= */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 60px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.65;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted2);
+      margin-bottom: 14px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--muted);
+      transition: color .15s;
+    }
+
+    .footer-col ul li a:hover { color: var(--text); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border2);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p { font-size: 13px; color: var(--muted2); }
+
+    .footer-badges {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted2);
+      border: 1px solid var(--border2);
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+
+    @media (max-width: 820px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       MODAL OVERLAY (just in case)
+       ============================================= */
+    .divider-line {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* =============================================
+       ANIMATIONS
+       ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
   
+    .logo-icon, .login-logo-icon, .reg-logo-icon{display:flex;align-items:center;justify-content:center;font-size:0}
+    .logo-icon::before, .login-logo-icon::before, .reg-logo-icon::before{content:"🛡️";font-size:20px;line-height:1}
+    .logo-text span{color:var(--text)}
+    .stat-num.stat-text{font-size:20px;line-height:1.25;letter-spacing:-.02em;font-weight:700}
+    .tools-approved img{width:100%;max-width:1400px;display:block;border-radius:28px}
+
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <span class="brand-mark brand-shield" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
-      <span>NextStep Compliance<small>Healthcare Compliance Assistant</small></span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#tools">Tools</a>
-      <a href="about.html">About</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a class="btn-ghost" href="login.html">Log in</a>
-      <a class="btn" href="register.html">Book a Demo</a>
-    </nav>
-  </div>
-</header>
+  <!-- ==================== NAVBAR ==================== -->
+  <nav>
+    <div class="wrap nav-inner">
+      <a href="login.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span class="logo-text">Next<span>Step Compliance</span></span>
+      </a>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      
-      <h1>Compliance Assistant for Healthcare Agencies</h1>
-      <p class="lead">NMC validation, DBS checks, Right to Work verification, and onboarding profile checklists — all in one secure platform designed for healthcare agencies. Reduce manual work, minimise errors, and manage compliance more efficiently.</p>
-      <div class="cta-row">
-        <a class="btn" href="register.html">Book a Demo</a>
-        <a class="btn-ghost" href="#video">See the Tools</a>
-      </div>
-      <div class="meta-row">
-        <span>No long-term contracts</span>
-        <span>GDPR-compliant processing</span>
-        <span>Secure UK-based infrastructure</span>
-      </div>
-      <div class="stats">
-        <div class="stat"><strong>Improved accuracy</strong><span class="muted">Reliable compliance processing.</span></div>
-        <div class="stat"><strong>Up to 80% time saved</strong><span class="muted">Reduce manual workload.</span></div>
-        <div class="stat"><strong>High-volume processing</strong><span class="muted">Handle multiple checks efficiently.</span></div>
-        <div class="stat"><strong>24/7 availability</strong><span class="muted">Book a Demo, get approved, start running checks.</span></div>
-      </div>
-    </div>
-    <div class="card hero-panel">
-      <div class="tool-tag">What NextStep Compliance solves</div>
-      <div class="checks" style="margin-top:1rem">
-        <div class="check"><i>✓</i><div><strong>Manual admin overload</strong><div class="muted">Reduce repetitive portal checks and document handling.</div></div></div>
-        <div class="check"><i>✓</i><div><strong>Fragmented compliance steps</strong><div class="muted">Run verification and checklist workflows from one account.</div></div></div>
-        <div class="check"><i>✓</i><div><strong>Poor visibility</strong><div class="muted">Track usage, jobs and approvals through a central dashboard.</div></div></div>
-      </div>
-      <hr class="sep">
-      <div class="note">Current hosting is still on test infrastructure while the platform is being finalised. Domain, business email and paid hosting will be added before customer launch.</div>
-    </div>
-  </div>
-</section>
+      <ul class="nav-links">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
 
-<section class="section" id="how">
-  <div class="container">
-    <h2>How it works</h2>
-    <p class="sub">The platform is designed for operations teams that need speed without losing oversight.</p>
-    <div class="grid3">
-      <div class="card">
-        <div class="icon-box">1</div>
-        <h3>Book a Demo</h3>
-        <p>Set up your company access, receive your dashboard, and get started with your token bundle. Add team members later as needed.</p>
+      <div class="nav-cta">
+        <a href="login.html" class="btn-ghost">Log In</a>
+        <a href="#demo" class="btn-primary">Book a Demo</a>
       </div>
-      <div class="card">
-        <div class="icon-box">2</div>
-        <h3>Run checks</h3>
-        <p>Use the dashboard to launch NMC, DBS, RTW or Checklist workflows. Each job is tied to your account and tracked centrally.</p>
-      </div>
-      <div class="card">
-        <div class="icon-box">3</div>
-        <h3>Download outputs</h3>
-        <p>Receive structured outputs, downloadable reports, and a clear history of completed checks for easier review and record keeping.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="tools">
-  <div class="container">
-    <h2>Our tools</h2>
-    <p class="sub">Each tool handles a specific part of the compliance process — together, they create a complete workflow for healthcare onboarding.</p>
-    <div class="grid2">
-      <div class="card">
-        <span class="tool-tag">NMC Check</span>
-        <h3>NMC validation</h3>
-        <ul class="feature-list">
-          <li>Validate NMC registration status, expiry, and practitioner details</li>
-          <li>Process multiple candidates in a structured workflow</li>
-          <li>Generate consistent, easy-to-review outputs for compliance teams</li>
-        </ul>
-      </div>
-      <div class="card">
-        <span class="tool-tag">DBS Check</span>
-        <h3>DBS Check Workflow</h3>
-        <ul class="feature-list">
-          <li>Interpret DBS certificate results with structured output</li>
-          <li>Support document-based verification and record consistency</li>
-          <li>Reduce repeated manual checks across systems</li>
-        </ul>
-      </div>
-      <div class="card">
-        <span class="tool-tag">Right to Work</span>
-        <h3>Right to Work Verification</h3>
-        <ul class="feature-list">
-          <li>Interpret right to work status, visa conditions, and expiry</li>
-          <li>Highlight restrictions and compliance requirements clearly</li>
-          <li>Produce audit-ready outputs for employer records</li>
-        </ul>
-      </div>
-      <div class="card">
-        <span class="tool-tag">Checklist</span>
-        <h3>Onboarding Profile Checklists</h3>
-        <ul class="feature-list">
-          <li>Extract and organise candidate compliance data automatically</li>
-          <li>Populate onboarding profiles and compliance templates</li>
-          <li>Reduce repetitive form completion and manual review effort</li>
-        </ul>
-      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
     </div>
-  </div>
-</section>
 
-<section class="section" id="video">
-  <div class="container">
-    <h2>Why healthcare agencies choose NextStep Compliance</h2>
-    <p class="sub">A short walkthrough video will improve trust and conversion. Add a Loom or recorded screen demo here before launch.</p>
-    <div class="video-box">
-      <div>
-        <h3 style="margin:.2rem 0 .5rem;font-family:var(--font-head)">Built to simplify compliance workflows, reduce manual effort, and give your team clear, structured outputs for every candidate.</h3>
-        <p class="muted" style="max-width:52ch;margin:0 auto">Recommended video structure: login → dashboard → launch a tool → run a sample check → show result and token tracking.</p>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#tools">Tools</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="login.html">Log In</a>
+      <a href="#demo" style="color: var(--primary2); font-weight: 600;">Book a Demo →</a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="home">
+    <div class="wrap">
+
+      <h1>Compliance Assistant<br>for <span class="accent">Healthcare Agencies</span></h1>
+
+      <p class="hero-sub">
+        NMC validation, DBS checks, Right to Work verification, and onboarding profile checklists — all in one secure platform designed for healthcare agencies. Reduce manual work, minimise errors, and manage compliance more efficiently.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#demo" class="btn-primary btn-xl">Book a Free Demo</a>
+        <a href="#tools" class="btn-ghost btn-large">See the Tools</a>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <h2></h2>
-    <p class="sub">The site should speak like an operations product, not a generic marketing template.</p>
-    <div class="grid3">
-      <div class="card"><h3>Save time on compliance checks</h3><p>One place to manage approval, access, jobs and usage instead of relying on multiple separate tools and manual steps.</p></div>
-      <div class="card"><h3>Consistent and audit-ready outputs</h3><p>Generate structured reports that are easy to review, share, and present during audits.</p></div>
-      <div class="card"><h3>Built for healthcare workflows</h3><p>Designed specifically for NMC, DBS, Right to Work, and onboarding processes used by UK agencies.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="demo">
-  <div class="container">
-    <h2>Request a Demo</h2>
-    <p class="sub">We’ll walk you through the full platform live — all four tools, the dashboard, and pricing for your team size. Takes 20 minutes. No pressure, no commitment.</p>
-    <div class="card">
-      <form onsubmit="event.preventDefault();document.getElementById('demo-note').style.display='block';">
-        <div class="form-grid">
-          <div class="field"><label>Name</label><input required placeholder="Your name"></div>
-          <div class="field"><label>Company</label><input required placeholder="Your company"></div>
-          <div class="field"><label>Email</label><input required type="email" placeholder="name@company.com"></div>
-          <div class="field"><label>Phone</label><input placeholder="+44 ..."></div>
-          <div class="field" style="grid-column:1/-1"><label>What would you like to see?</label><textarea placeholder="NMC, DBS, RTW, Checklist or full platform demo"></textarea></div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          No lock-in contracts
         </div>
-        <div class="cta-row" style="margin-top:1rem">
-          <button class="btn" type="submit">Request My Demo →</button>
-          <a class="btn-ghost" href="mailto:raj.nextstepoutsourcing@gmail.com">Email us instead</a>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          GDPR-conscious processing
         </div>
-        <p id="demo-note" class="note" style="display:none;margin-top:1rem">Demo form submission is temporarily disabled until the live email/form endpoint is connected. Use the email option for now.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <div class="brand" style="margin-bottom:.8rem">
-        <span class="brand-mark brand-shield" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
-        <span>NextStep Compliance<small>Designed for UK healthcare compliance workflows</small></span>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Secure UK-based infrastructure
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Get started in minutes
+        </div>
       </div>
-      <p class="notice">NextStep Compliance helps healthcare teams centralise NMC, DBS, right to work and onboarding profile checklist workflows in one system.</p>
-      <div class="badge-line">
-        <span class="badge">UK-focused</span>
-        <span class="badge">GDPR-aware</span>
-        <span class="badge">Secure workflow design</span>
+
+      <div class="stats-bar fade-up">
+        <div class="stat-item">
+          <div class="stat-num stat-text">Improved Accuracy</div>
+          <div class="stat-label">Reliable compliance processing</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num stat-text">Up to 80% Time Saved</div>
+          <div class="stat-label">Reduce manual workload</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num stat-text">High-Volume Processing</div>
+          <div class="stat-label">Handle multiple checks efficiently</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num stat-text">24/7 Availability</div>
+          <div class="stat-label">Run checks anytime</div>
+        </div>
       </div>
     </div>
-    <div class="footer-links">
-      <strong>Product</strong>
-      <a href="index.html#tools">Tools</a>
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#demo">Request a Demo</a>
-      <a href="login.html">Log in</a>
+  </section>
+
+  <div class="divider-line"></div>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="section" id="how-it-works">
+    <div class="wrap">
+      <div class="section-head center fade-up">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Three simple steps to get started</h2>
+        <p class="section-sub">No complex setup. No training required. Your team is running checks within the same day.</p>
+      </div>
+
+      <div class="steps fade-up">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-icon">🔐</div>
+          <h3>Create your account</h3>
+          <p>Set up your company access, receive your dashboard, and get started with your token bundle. Add team members later as needed.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-icon">⚙️</div>
+          <h3>Run your checks</h3>
+          <p>Upload candidate details or documents, then run NMC, DBS, Right to Work, or onboarding checklist workflows from one place.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-icon">📄</div>
+          <h3>Download results</h3>
+          <p>Receive structured outputs, downloadable reports, and a clear history of completed checks for easier review and record keeping.</p>
+        </div>
+      </div>
     </div>
-    <div class="footer-links">
-      <strong>Company & legal</strong>
-      <a href="about.html">About</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="cookie-policy.html">Cookie Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="mailto:raj.nextstepoutsourcing@gmail.com">Contact</a>
+  </section>
+
+  <div class="divider-line"></div>
+
+  <!-- ==================== TOOLS ==================== -->
+  
+  <section class="section section-alt" id="tools">
+    <div class="wrap approved-tools-wrap">
+      <div class="approved-tools-head fade-up">
+        <div class="approved-tools-label">Our Tools</div>
+        <div class="approved-tools-title">Each tool handles a specific part of the <strong>compliance process</strong>—together, they create a <strong>complete workflow</strong> for healthcare onboarding.</div>
+      </div>
+      <div class="approved-tools-grid fade-up">
+        <article class="approved-tool-card">
+          <div class="approved-tool-chip">NMC Check</div>
+          <h3>NMC Validation</h3>
+          <div class="approved-tool-visual">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff0ff"/><stop offset="1" stop-color="#78b9ff"/></linearGradient>
+                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e68ff"/><stop offset="1" stop-color="#63b4ff"/></linearGradient>
+              </defs>
+              <rect x="34" y="62" rx="14" ry="14" width="104" height="76" fill="url(#g1)" opacity="0.95"/>
+              <rect x="72" y="36" rx="6" ry="6" width="28" height="34" fill="url(#g1)"/>
+              <rect x="46" y="77" rx="10" ry="10" width="34" height="46" fill="#d7ebff"/>
+              <circle cx="63" cy="91" r="9" fill="#4b82c8"/>
+              <path d="M49 117c4-10 25-10 29 0" fill="#4b82c8"/>
+              <rect x="90" y="82" width="32" height="6" rx="3" fill="#5f93d2" opacity="0.9"/>
+              <rect x="90" y="96" width="26" height="6" rx="3" fill="#5f93d2" opacity="0.7"/>
+              <circle cx="131" cy="105" r="27" fill="url(#g2)"/>
+              <path d="M119 105l8 8 16-19" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <ul class="approved-tool-list">
+            <li><strong>Validate NMC</strong> registration status, expiry, and practitioner details with structured output</li>
+            <li>Process multiple candidates in a single workflow</li>
+            <li>Identify errors early and rerun checks without starting over</li>
+          </ul>
+        </article>
+        <article class="approved-tool-card">
+          <div class="approved-tool-chip">DBS Check</div>
+          <h3>DBS Check Workflow</h3>
+          <div class="approved-tool-visual">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f4ff"/><stop offset="1" stop-color="#8fc2ff"/></linearGradient>
+                <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2e82ff"/><stop offset="1" stop-color="#6ec2ff"/></linearGradient>
+              </defs>
+              <rect x="56" y="48" rx="12" ry="12" width="76" height="96" fill="url(#g3)"/>
+              <rect x="74" y="72" width="42" height="5" rx="3" fill="#5f93d2"/>
+              <rect x="74" y="86" width="42" height="5" rx="3" fill="#5f93d2" opacity="0.8"/>
+              <rect x="74" y="100" width="34" height="5" rx="3" fill="#5f93d2" opacity="0.65"/>
+              <path d="M136 80c16 5 25 8 36 10 0 40-12 56-36 70-24-14-36-30-36-70 11-2 20-5 36-10z" fill="url(#g4)"/>
+              <path d="M122 121l10 10 22-26" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="165" cy="141" r="17" fill="#dff0ff"/>
+              <path d="M158 141l4 4 9-11" fill="none" stroke="#2f7df7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <ul class="approved-tool-list">
+            <li>Structured approach to DBS status verification</li>
+            <li>Supports document-based processing for consistency</li>
+            <li>Reduces repeated manual checks across systems</li>
+          </ul>
+        </article>
+        <article class="approved-tool-card">
+          <div class="approved-tool-chip">Right to Work</div>
+          <h3>Right to Work<br/>Verification</h3>
+          <div class="approved-tool-visual">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff0ff"/><stop offset="1" stop-color="#7ab7ff"/></linearGradient>
+                <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d78ff"/><stop offset="1" stop-color="#65bdff"/></linearGradient>
+              </defs>
+              <rect x="62" y="52" rx="9" ry="9" width="80" height="102" fill="url(#g6)" opacity="0.95"/>
+              <circle cx="102" cy="92" r="25" fill="none" stroke="#cfe8ff" stroke-width="4"/>
+              <path d="M77 92h50M102 67c10 8 10 42 0 50M102 67c-10 8-10 42 0 50" fill="none" stroke="#cfe8ff" stroke-width="4"/>
+              <rect x="86" y="125" width="32" height="5" rx="3" fill="#d8efff" opacity="0.8"/>
+              <circle cx="142" cy="132" r="26" fill="url(#g5)"/>
+              <path d="M142 119v15l9 6" fill="none" stroke="#2c77ef" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <ul class="approved-tool-list">
+            <li>Interpret right to work status, visa conditions, and expiry with audit-ready output</li>
+            <li>Fits directly into healthcare onboarding processes</li>
+            <li>Works alongside other compliance checks in one flow</li>
+          </ul>
+        </article>
+        <article class="approved-tool-card">
+          <div class="approved-tool-chip">Checklist</div>
+          <h3>Onboarding Profile<br/>Checklists</h3>
+          <div class="approved-tool-visual">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g7" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e5f3ff"/><stop offset="1" stop-color="#87beff"/></linearGradient>
+                <linearGradient id="g8" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1676ff"/><stop offset="1" stop-color="#63beff"/></linearGradient>
+              </defs>
+              <rect x="56" y="44" rx="14" ry="14" width="88" height="112" fill="url(#g7)"/>
+              <rect x="82" y="32" rx="8" ry="8" width="36" height="20" fill="url(#g8)"/>
+              <rect x="74" y="68" rx="10" ry="10" width="26" height="34" fill="#d8ebff"/>
+              <circle cx="87" cy="80" r="7" fill="#4c83c9"/>
+              <path d="M77 98c3-8 18-8 20 0" fill="#4c83c9"/>
+              <path d="M78 114h12M78 128h12M78 142h12" stroke="#2c7af4" stroke-width="5" stroke-linecap="round"/>
+              <path d="M103 114l5 5 8-10M103 128l5 5 8-10M103 142l5 5 8-10" fill="none" stroke="#2c7af4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="147" cy="134" r="24" fill="url(#g8)"/>
+              <path d="M136 134l7 7 15-18" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <ul class="approved-tool-list">
+            <li>Extract candidate data from uploaded documents</li>
+            <li><strong>Automatically populate</strong> compliance templates</li>
+            <li>Reduce repetitive form filling and manual review time</li>
+          </ul>
+        </article>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
 
-<div class="cookie-banner" id="cookie-banner">
-  <div class="cookie-inner">
-    <div>
-      <strong style="display:block;margin-bottom:.3rem">Cookies on NextStep Compliance</strong>
-      <div class="muted">We use essential cookies to keep login and session features working. We do not use advertising cookies on this website at the moment. See our <a href="cookie-policy.html" style="color:#dce8ff;text-decoration:underline">Cookie Policy</a>.</div>
-    </div>
-    <div class="cookie-actions">
-      <button class="btn-ghost" type="button" data-cookie-choice="reject">Reject non-essential</button>
-      <button class="btn" type="button" data-cookie-choice="accept">Accept</button>
-    </div>
-  </div>
-</div>
+  <div class="divider-line"></div>
 
-<script>
-(function(){
-  const key='complisure_cookie_pref_v1';
-  const banner=document.getElementById('cookie-banner');
-  if(!banner) return;
-  if(!localStorage.getItem(key)){ banner.style.display='block'; }
-  document.querySelectorAll('[data-cookie-choice]').forEach(btn=>{
-    btn.addEventListener('click', function(){
-      localStorage.setItem(key, this.getAttribute('data-cookie-choice'));
-      banner.style.display='none';
+<!-- ==================== PRICING TEASER ==================== -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="pricing-card fade-up">
+        <div class="section-label" style="justify-content:center; display:inline-flex; margin-bottom:14px;">Pricing</div>
+        <h2>Simple, flexible pricing for your team</h2>
+        <p>One monthly plan with flexible usage across all compliance tools. Run NMC, DBS, Right to Work, and onboarding profile checklists without switching systems or paying separately for each check.</p>
+
+        <div class="token-chips">
+          <div class="token-chip"><div class="token-chip-dot"></div>NMC validation</div>
+          <div class="token-chip"><div class="token-chip-dot"></div>DBS checks</div>
+          <div class="token-chip"><div class="token-chip-dot"></div>Right to Work</div>
+          <div class="token-chip"><div class="token-chip-dot"></div>Onboarding profile checklists</div>
+          <div class="token-chip"><div class="token-chip-dot" style="background:var(--warn)"></div>Flexible usage across all tools</div>
+        </div>
+
+        <p style="margin-bottom: 28px; font-size: 15px;">Pricing is tailored to your team size and monthly volume. <strong style="color: var(--text);">Book a demo</strong> and we'll walk you through exactly what it costs for your agency.</p>
+
+        <a href="#demo" class="btn-primary btn-large">View Pricing — Book a Demo</a>
+
+        <p style="margin-top: 16px; font-size: 13px; color: var(--muted2);">No commitment required for the demo.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"></div>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head center fade-up">
+        <div class="section-label">Trusted By</div>
+        <h2 class="section-title">Why healthcare agencies choose NextStep Compliance</h2>
+        <p class="section-sub">Built to simplify compliance workflows, reduce manual effort, and give your team clear, structured outputs for every candidate.</p>
+      </div>
+
+      <div class="testimonials-grid fade-up">
+        <div class="testi-card">
+          <blockquote><strong>Save time on compliance checks</strong><br><br>Reduce hours spent on manual verification and repetitive admin tasks across your team.</blockquote>
+        </div>
+        <div class="testi-card">
+          <blockquote><strong>Consistent and audit-ready outputs</strong><br><br>Generate structured reports that are easy to review, share, and present during audits.</blockquote>
+        </div>
+        <div class="testi-card">
+          <blockquote><strong>Built for healthcare workflows</strong><br><br>Designed specifically for NMC, DBS, Right to Work, and onboarding processes used by UK agencies.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ==================== FAQ ==================== -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head center fade-up">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Frequently asked questions</h2>
+      </div>
+
+            <div class="faq-list fade-up">
+        <div class="faq-item">
+          <button class="faq-q">
+            How does pricing work?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Pricing is based on usage across all compliance tools. You can run NMC, DBS, Right to Work, and checklist workflows without separate pricing for each tool, making it simple and flexible for your team.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Can multiple team members use the platform?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Yes. Each company account supports multiple users with shared access to the dashboard, allowing teams to manage compliance workflows together.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Is the platform GDPR-conscious?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">The platform is designed with GDPR-conscious data handling. Documents are processed securely, and access is controlled to ensure data is handled appropriately.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            How quickly can we get started?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Most teams can start using the platform the same day. There is no complex setup or training required.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Can we scale usage as our team grows?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Yes. The platform is designed to scale with your team, allowing you to increase usage as your compliance needs grow.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            What kind of support do you offer?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">We provide UK-based support via email during business hours. Our team can assist with onboarding, technical questions, and compliance-related queries.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            What types of documents can we upload?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">You can upload PDFs, images, spreadsheets, and text documents. The platform extracts and processes relevant compliance data automatically.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider-line"></div>
+
+  <!-- ==================== DEMO / CONTACT ==================== -->
+  <section class="demo-section" id="demo">
+    <div class="wrap">
+      <div class="demo-box fade-up">
+        <div class="demo-left">
+          <div class="section-label">Book a Demo</div>
+          <h2>See NextStep Compliance in action</h2>
+          <p>We'll walk you through the full platform live — all four tools, the dashboard, and pricing for your team size. Takes 20 minutes. No pressure, no commitment.</p>
+
+          <div class="demo-trust">
+            <div class="demo-trust-item">
+              <div class="demo-trust-icon">✓</div>
+              Live walkthrough of all 4 tools
+            </div>
+            <div class="demo-trust-item">
+              <div class="demo-trust-icon">✓</div>
+              Transparent pricing for your volume
+            </div>
+            <div class="demo-trust-item">
+              <div class="demo-trust-icon">✓</div>
+              Same-day onboarding available
+            </div>
+            <div class="demo-trust-item">
+              <div class="demo-trust-icon">✓</div>
+              Designed for UK healthcare compliance workflows
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-right">
+          <h3>Request a Demo</h3>
+
+          <div class="form-fields" id="formFields">
+            <form id="demoForm" action="https://formspree.io/raj.nextstepoutsourcing@gmail.com" method="POST">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label>Company Name *</label>
+                <input type="text" name="company" placeholder="Your agency or company" required />
+              </div>
+              <div class="form-group">
+                <label>Work Email *</label>
+                <input type="email" name="email" placeholder="you@company.co.uk" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" name="phone" placeholder="+44 7700 900000" required />
+              </div>
+
+              <div class="form-tools-label">Tools you're interested in</div>
+              <div class="form-tools-grid">
+                <label class="tool-checkbox">
+                  <input type="checkbox" name="tools" value="NMC" /> NMC Check
+                </label>
+                <label class="tool-checkbox">
+                  <input type="checkbox" name="tools" value="DBS" /> DBS Check
+                </label>
+                <label class="tool-checkbox">
+                  <input type="checkbox" name="tools" value="RTW" /> Right to Work
+                </label>
+                <label class="tool-checkbox">
+                  <input type="checkbox" name="tools" value="Checklist" /> Checklist
+                </label>
+              </div>
+
+              <button type="submit" class="form-submit">Request My Demo →</button>
+            </form>
+            <p class="form-note">We'll be in touch within a few hours during business hours.</p>
+          </div>
+
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✓</div>
+            <h4>Demo request received!</h4>
+            <p>We'll contact you shortly to schedule your walkthrough. Check your inbox for a confirmation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="login.html" class="logo">
+            <div class="logo-icon">⚡</div>
+            <span class="logo-text">Next<span>Step Compliance</span></span>
+          </a>
+          <p>UK healthcare compliance automation. NMC, DBS, RTW, and onboarding — all under one platform.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#tools">NMC Check</a></li>
+            <li><a href="#tools">DBS Check</a></li>
+            <li><a href="#tools">Right to Work</a></li>
+            <li><a href="#tools">Onboarding Profiles</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="login.html">About</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#demo">Book a Demo</a></li>
+            <li><a href="login.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="login.html">Privacy Policy</a></li>
+            <li><a href="login.html">Terms of Service</a></li>
+            <li><a href="login.html">GDPR</a></li>
+            <li><a href="login.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 NextStep Compliance. All rights reserved. Registered in England & Wales.</p>
+        <div class="footer-badges">
+          <div class="footer-badge">🔒 GDPR Compliant</div>
+          <div class="footer-badge">🇬🇧 UK Built</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Mobile nav ----
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
     });
-  });
-})();
-</script>
 
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // ---- FAQ accordion ----
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ---- Form submit (Formspree) ----
+    const form = document.getElementById('demoForm');
+    const formFields = document.getElementById('formFields');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' }
+        });
+
+        if (res.ok) {
+          formFields.classList.add('hide');
+          formSuccess.classList.add('show');
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or email us directly.');
+        }
+      } catch {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+        alert('Network error. Please try again.');
+      }
+    });
+
+    // ---- Scroll fade-up animations ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

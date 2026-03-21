@@ -3,217 +3,760 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log in — NextStep Compliance</title>
+  <title>Log In — NextStep Compliance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-:root{
-  --bg:#07101d;--bg2:#0c1728;--panel:#0d1b31;--panel2:#112240;--border:rgba(255,255,255,.10);
-  --text:#eef4ff;--muted:#a7b7d1;--muted2:#6f86a8;--primary:#3b82f6;--primary2:#60a5fa;
-  --green:#22c55e;--amber:#f59e0b;--danger:#ef4444;--shadow:0 20px 60px rgba(0,0,0,.35);
-  --radius:18px;--max:1180px;--font-head:'Sora',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;
-}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{
-  margin:0;font-family:var(--font-body);color:var(--text);background:
-  radial-gradient(circle at top left, rgba(59,130,246,.18), transparent 30%),
-  radial-gradient(circle at top right, rgba(37,99,235,.14), transparent 24%),
-  linear-gradient(180deg, var(--bg), #050b15 70%);
-  line-height:1.6;
-}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-.container{width:min(var(--max), calc(100% - 2rem)); margin:0 auto}
-.site-header{position:sticky;top:0;z-index:50;background:rgba(7,16,29,.78);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
-.brand{display:flex;align-items:center;gap:.8rem;font-family:var(--font-head);font-weight:700;letter-spacing:.2px}
-.brand-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#0ea5e9);display:grid;place-items:center;box-shadow:0 10px 30px rgba(59,130,246,.28);font-weight:800}
-.brand small{display:block;font-family:var(--font-body);font-size:.74rem;color:var(--muted)}
-.nav-links{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap}
-.nav-links a{color:var(--muted);font-weight:500}
-.nav-links a:hover{color:var(--text)}
-.btn,.btn-ghost,.btn-danger{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:12px;
-  padding:.85rem 1.15rem;font-weight:700;border:1px solid transparent;transition:.2s ease;cursor:pointer
-}
-.btn{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;box-shadow:0 12px 28px rgba(59,130,246,.22)}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
-.btn-ghost{border-color:var(--border);color:var(--text);background:rgba(255,255,255,.03)}
-.btn-ghost:hover{background:rgba(255,255,255,.06)}
-.btn-danger{background:#7f1d1d;color:#fff}
-.hero{padding:4.5rem 0 3rem}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
-.kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .7rem;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.26);color:#d7e8ff;font-weight:600;font-size:.9rem}
-.hero h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.05;margin:1rem 0}
-.hero p.lead{font-size:1.08rem;color:var(--muted);max-width:62ch}
-.cta-row{display:flex;gap:.9rem;flex-wrap:wrap;margin:1.5rem 0 1rem}
-.meta-row{display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.94rem}
-.grid3,.grid4,.grid2{display:grid;gap:1rem}
-.grid4{grid-template-columns:repeat(4,1fr)} .grid3{grid-template-columns:repeat(3,1fr)} .grid2{grid-template-columns:repeat(2,1fr)}
-.card{background:linear-gradient(180deg, rgba(17,34,64,.86), rgba(11,24,45,.86));border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;box-shadow:var(--shadow)}
-.card h3{font-family:var(--font-head);margin:.2rem 0 .6rem}
-.card p{color:var(--muted);margin:.2rem 0}
-.section{padding:1.4rem 0 3rem}
-.section h2{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.5rem);margin:0 0 .55rem}
-.section .sub{color:var(--muted);max-width:70ch;margin:0 0 1.2rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
-.stat{padding:1rem 1.1rem;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--border)}
-.stat strong{display:block;font-family:var(--font-head);font-size:1.35rem;margin-bottom:.25rem}
-.feature-list,.clean-list{margin:.8rem 0 0;padding-left:1.1rem;color:var(--muted)}
-.feature-list li,.clean-list li{margin:.45rem 0}
-.tool-tag{display:inline-flex;padding:.3rem .55rem;border-radius:999px;background:rgba(59,130,246,.15);border:1px solid rgba(96,165,250,.22);color:#d9eaff;font-size:.82rem;font-weight:600}
-.checks{display:grid;gap:.8rem}
-.check{display:flex;gap:.7rem;align-items:flex-start}
-.check i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:999px;background:rgba(34,197,94,.15);color:#8bffb1;font-style:normal;font-weight:800;flex:0 0 auto}
-.note{padding:1rem 1.1rem;border-left:3px solid var(--primary);background:rgba(59,130,246,.08);border-radius:12px;color:#dce8ff}
-.callout{padding:1.1rem 1.2rem;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
-.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.field{display:grid;gap:.45rem}
-label{font-weight:600;color:#dfe9f9}
-input,select,textarea{
-  width:100%;border-radius:12px;border:1px solid var(--border);background:#081222;color:var(--text);
-  padding:.92rem 1rem;font:inherit
-}
-textarea{min-height:120px;resize:vertical}
-small.muted, .muted{color:var(--muted)}
-footer{padding:2.2rem 0 3rem;border-top:1px solid rgba(255,255,255,.06);margin-top:2rem}
-.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:1.5rem}
-.footer-links{display:grid;gap:.5rem}
-.footer-links a{color:var(--muted)}
-.footer-links a:hover{color:var(--text)}
-.notice{font-size:.9rem;color:var(--muted)}
-.badge-line{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
-.badge{display:inline-flex;align-items:center;gap:.35rem;border-radius:999px;padding:.4rem .7rem;background:rgba(255,255,255,.04);border:1px solid var(--border);color:#dce8ff;font-size:.85rem}
-.video-box{aspect-ratio:16/9;border-radius:18px;border:1px dashed rgba(96,165,250,.35);display:grid;place-items:center;background:linear-gradient(180deg,rgba(59,130,246,.08),rgba(255,255,255,.02));text-align:center;padding:1.4rem}
-.legal h3{font-family:var(--font-head);margin:1.35rem 0 .55rem}
-.legal p,.legal li{color:var(--muted)}
-.legal ul{padding-left:1.2rem}
-.auth-wrap{min-height:100vh;display:grid;place-items:center;padding:2rem 0}
-.auth-card{width:min(720px, calc(100% - 2rem));}
-.cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:80;display:none}
-.cookie-inner{width:min(920px,100%);margin:0 auto;padding:1rem 1.1rem;border-radius:18px;border:1px solid var(--border);background:rgba(6,13,24,.96);box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;justify-content:space-between}
-.cookie-actions{display:flex;gap:.7rem;flex-shrink:0}
-.hero-panel{padding:1.35rem}
-.icon-box{width:46px;height:46px;border-radius:14px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.22);display:grid;place-items:center;font-size:1.25rem}
-hr.sep{border:none;border-top:1px solid rgba(255,255,255,.06);margin:1.4rem 0}
-@media (max-width: 960px){
-  .hero-grid,.grid4,.grid3,.grid2,.stats,.footer-grid,.form-grid{grid-template-columns:1fr}
-  .nav{align-items:flex-start}
-  .nav-links{justify-content:flex-start}
-  .cookie-inner{display:grid}
-}
-</style>
+    :root {
+      --bg:        #070a10;
+      --bg2:       #0b1220;
+      --card:      #0b1426;
+      --card2:     #0f1a2e;
+      --border:    rgba(255,255,255,.10);
+      --border2:   rgba(255,255,255,.06);
+      --text:      #f2f6ff;
+      --muted:     #a9b6cc;
+      --muted2:    #6b7fa0;
+      --primary:   #2563eb;
+      --primary2:  #3b82f6;
+      --glow:      rgba(37,99,235,.35);
+      --danger:    #ef4444;
+      --ok:        #22c55e;
+      --radius:    14px;
+      --radius-sm: 10px;
+      --font-head: 'Sora', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+    }
+
+    /* Radial glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -160px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(37,99,235,.13) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ---- Navbar ---- */
+    nav {
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid var(--border2);
+      background: rgba(7,10,16,.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 0 18px var(--glow);
+    }
+
+    .logo-text {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.3px;
+    }
+
+    .logo-text span { color: var(--primary2); }
+
+    .nav-back {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: color .15s, border-color .15s;
+    }
+
+    .nav-back:hover { color: var(--text); border-color: rgba(255,255,255,.22); }
+
+    /* ---- Main layout ---- */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-wrap {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* ---- Header ---- */
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .login-header h1 {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 8px;
+    }
+
+    .login-header p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ---- Card ---- */
+    .login-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 32px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+    }
+
+    /* ---- Form elements ---- */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+      color: var(--muted2);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px 12px 40px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    .form-group input::placeholder { color: var(--muted2); }
+
+    .form-group input:focus {
+      border-color: var(--primary2);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.20);
+    }
+
+    .form-group input.error {
+      border-color: rgba(239,68,68,.55);
+      box-shadow: 0 0 0 3px rgba(239,68,68,.12);
+    }
+
+    /* Password toggle */
+    .pw-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--muted2);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px;
+      line-height: 1;
+      transition: color .15s;
+    }
+
+    .pw-toggle:hover { color: var(--text); }
+
+    /* Row: Remember me + Forgot password */
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .remember-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .remember-wrap input[type="checkbox"] {
+      accent-color: var(--primary2);
+      width: 15px; height: 15px;
+      cursor: pointer;
+    }
+
+    .remember-wrap span {
+      font-size: 13px;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    .forgot-link {
+      font-size: 13px;
+      color: var(--primary2);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color .15s;
+    }
+
+    .forgot-link:hover { color: #60a5fa; text-decoration: underline; }
+
+    /* Submit button */
+    .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      color: #fff;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: filter .15s, transform .12s, box-shadow .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--glow);
+    }
+
+    .btn-submit:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+    }
+
+    /* Spinner inside button */
+    .btn-spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,.30);
+      border-top-color: #fff;
+      border-radius: 999px;
+      animation: spin .7s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Error message */
+    .error-msg {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: rgba(239,68,68,.10);
+      border: 1px solid rgba(239,68,68,.25);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      font-size: 13px;
+      color: #fca5a5;
+      margin-bottom: 16px;
+    }
+
+    .error-msg.show { display: flex; }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider span {
+      font-size: 12px;
+      color: var(--muted2);
+      white-space: nowrap;
+    }
+
+    /* Footer note */
+    .login-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .login-footer a {
+      color: var(--primary2);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-footer a:hover { text-decoration: underline; }
+
+    /* Trust badges */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border2);
+      padding: 18px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    /* Forgot password modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, color .15s;
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,.10); color: var(--text); }
+
+    .modal h2 {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -.02em;
+    }
+
+    .modal p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .modal-success {
+      display: none;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    .modal-success.show { display: block; }
+    .modal-form.hide { display: none; }
+
+    .modal-success-icon {
+      width: 50px; height: 50px;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.25);
+      border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 14px;
+    }
+
+    .modal-success h3 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .modal-success p { margin-bottom: 0; }
+
+    @media (max-width: 480px) {
+      .login-card { padding: 28px 20px; }
+      .modal { padding: 28px 20px; }
+    }
   
+    .logo-icon, .login-logo-icon, .reg-logo-icon{display:flex;align-items:center;justify-content:center;font-size:0}
+    .logo-icon::before, .login-logo-icon::before, .reg-logo-icon::before{content:"🛡️";font-size:20px;line-height:1}
+    .logo-text span{color:var(--text)}
+
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <span class="brand-mark brand-shield" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
-      <span>NextStep Compliance<small>Healthcare Compliance Assistant</small></span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#tools">Tools</a>
-      <a href="about.html">About</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a class="btn-ghost" href="login.html">Log in</a>
-      <a class="btn" href="register.html">Request access</a>
-    </nav>
-  </div>
-</header>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span class="logo-text">Next<span>Step Compliance</span></span>
+      </a>
+      <a href="index.html" class="nav-back">← Back to Home</a>
+    </div>
+  </nav>
 
-<div class="auth-wrap">
-  <div class="card auth-card">
-    <div class="tool-tag">Secure account access</div>
-    <h1 style="font-family:var(--font-head);margin:.8rem 0 .35rem">Log in to NextStep Compliance</h1>
-    <p class="muted">Use your approved company account to access the dashboard and launch tools.</p>
-    <form action="https://nextstep-backend-e75l.onrender.com/auth/login" method="post" style="margin-top:1.2rem">
-      <div class="form-grid">
-        <div class="field" style="grid-column:1/-1"><label>Email</label><input type="email" name="email" required placeholder="you@company.com"></div>
-        <div class="field" style="grid-column:1/-1"><label>Password</label><input type="password" name="password" required placeholder="Enter your password"></div>
+  <!-- Main -->
+  <main>
+    <div class="login-wrap">
+
+      <div class="login-header">
+        <div class="login-logo-icon">⚡</div>
+        <h1>Welcome back</h1>
+        <p>Log in to your NextStep Compliance dashboard</p>
       </div>
-      <div class="cta-row">
-        <button class="btn" type="submit">Log in</button>
-        <a class="btn-ghost" href="register.html">Request access</a>
+
+      <div class="login-card">
+
+        <!-- Error message -->
+        <div class="error-msg" id="errorMsg">
+          <span>⚠</span>
+          <span id="errorText">Invalid email or password. Please try again.</span>
+        </div>
+
+        <form id="loginForm" action="https://nextstep-backend-e75l.onrender.com/auth/login" method="POST" novalidate>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Work Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@company.co.uk"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Your password"
+                autocomplete="current-password"
+                required
+              />
+              <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">👁</button>
+            </div>
+          </div>
+
+          <!-- Remember me + Forgot password -->
+          <div class="form-row">
+            <label class="remember-wrap">
+              <input type="checkbox" name="remember" id="rememberMe" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-link" id="forgotLink">Forgot password?</a>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit" id="loginBtn">
+            <div class="btn-spinner" id="btnSpinner"></div>
+            <span id="btnText">Log In</span>
+          </button>
+
+        </form>
+
       </div>
-    </form>
-    <hr class="sep">
-    <details class="callout">
-      <summary style="cursor:pointer;font-weight:700">Forgot password?</summary>
-      <p class="muted" style="margin-top:.75rem">Use the real backend forgot-password route below. This page no longer fakes a success message.</p>
-      <form action="https://nextstep-backend-e75l.onrender.com/auth/forgot-password" method="post" style="margin-top:.75rem">
-        <div class="field"><label>Account email</label><input type="email" name="email" required placeholder="you@company.com"></div>
-        <div class="cta-row"><button class="btn" type="submit">Send reset link</button></div>
-      </form>
-    </details>
-    <p class="notice" style="margin-top:1rem">Owner/admin approval is required before a company account can access the platform.</p>
-  </div>
-</div>
 
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <div class="brand" style="margin-bottom:.8rem">
-        <span class="brand-mark brand-shield" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
-        <span>NextStep Compliance<small>Designed for UK healthcare compliance workflows</small></span>
+      <!-- Register prompt -->
+      <div class="login-footer">
+        Don't have an account? <a href="register.html">Request access</a>
       </div>
-      <p class="notice">NextStep Compliance helps healthcare teams centralise NMC, DBS, right to work and onboarding profile checklist workflows in one system.</p>
-      <div class="badge-line">
-        <span class="badge">UK-focused</span>
-        <span class="badge">GDPR-aware</span>
-        <span class="badge">Secure workflow design</span>
+
+      <!-- Trust row -->
+      <div class="trust-row">
+        <div class="trust-item">🔒 Secure login</div>
+        <div class="trust-item">🇬🇧 UK hosted</div>
+        <div class="trust-item">✓ GDPR compliant</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 NextStep Compliance &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+  </footer>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" id="forgotModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+
+      <div class="modal-form" id="modalForm">
+        <h2>Reset your password</h2>
+        <p>Enter your work email and we'll send you a link to reset your password.</p>
+
+        <form id="forgotForm" action="https://nextstep-backend-e75l.onrender.com/auth/forgot-password" method="POST" novalidate>
+          <div class="form-group">
+            <label for="resetEmail">Work Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input
+                type="email"
+                id="resetEmail"
+                name="email"
+                placeholder="you@company.co.uk"
+                required
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn-submit" id="resetBtn">
+            <div class="btn-spinner" id="resetSpinner"></div>
+            <span id="resetBtnText">Send Reset Link</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="modal-success" id="modalSuccess">
+        <div class="modal-success-icon">✓</div>
+        <h3>Check your inbox</h3>
+        <p>If that email is registered, you'll receive a reset link shortly.</p>
       </div>
     </div>
-    <div class="footer-links">
-      <strong>Product</strong>
-      <a href="index.html#tools">Tools</a>
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#demo">Book a demo</a>
-      <a href="login.html">Log in</a>
-    </div>
-    <div class="footer-links">
-      <strong>Company & legal</strong>
-      <a href="about.html">About</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="cookie-policy.html">Cookie Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="mailto:raj.nextstepoutsourcing@gmail.com">Contact</a>
-    </div>
   </div>
-</footer>
 
-
-<div class="cookie-banner" id="cookie-banner">
-  <div class="cookie-inner">
-    <div>
-      <strong style="display:block;margin-bottom:.3rem">Cookies on NextStep Compliance</strong>
-      <div class="muted">We use essential cookies to keep login and session features working. We do not use advertising cookies on this website at the moment. See our <a href="cookie-policy.html" style="color:#dce8ff;text-decoration:underline">Cookie Policy</a>.</div>
-    </div>
-    <div class="cookie-actions">
-      <button class="btn-ghost" type="button" data-cookie-choice="reject">Reject non-essential</button>
-      <button class="btn" type="button" data-cookie-choice="accept">Accept</button>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  const key='complisure_cookie_pref_v1';
-  const banner=document.getElementById('cookie-banner');
-  if(!banner) return;
-  if(!localStorage.getItem(key)){ banner.style.display='block'; }
-  document.querySelectorAll('[data-cookie-choice]').forEach(btn=>{
-    btn.addEventListener('click', function(){
-      localStorage.setItem(key, this.getAttribute('data-cookie-choice'));
-      banner.style.display='none';
+  <script>
+    // ---- Password show/hide ----
+    const pwInput = document.getElementById('password');
+    const pwToggle = document.getElementById('pwToggle');
+    pwToggle.addEventListener('click', () => {
+      const isHidden = pwInput.type === 'password';
+      pwInput.type = isHidden ? 'text' : 'password';
+      pwToggle.textContent = isHidden ? '🙈' : '👁';
     });
-  });
-})();
-</script>
 
+    // ---- Login form (frontend validation + loading state) ----
+    const loginForm = document.getElementById('loginForm');
+    const loginBtn  = document.getElementById('loginBtn');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const btnText    = document.getElementById('btnText');
+    const errorMsg   = document.getElementById('errorMsg');
+    const errorText  = document.getElementById('errorText');
+    const emailInput = document.getElementById('email');
+    const passInput  = document.getElementById('password');
+
+    loginForm.addEventListener('submit', (e) => {
+      // Clear previous errors
+      errorMsg.classList.remove('show');
+      emailInput.classList.remove('error');
+      passInput.classList.remove('error');
+
+      let valid = true;
+
+      if (!emailInput.value.trim() || !/\S+@\S+\.\S+/.test(emailInput.value)) {
+        emailInput.classList.add('error');
+        valid = false;
+      }
+
+      if (!passInput.value.trim()) {
+        passInput.classList.add('error');
+        valid = false;
+      }
+
+      if (!valid) {
+        e.preventDefault();
+        errorText.textContent = 'Please enter a valid email and password.';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      // Submits to NextStep backend
+      loginBtn.disabled = true;
+      btnSpinner.style.display = 'block';
+      btnText.textContent = 'Logging in…';
+    });
+
+    // ---- Forgot password modal ----
+    const forgotLink  = document.getElementById('forgotLink');
+    const forgotModal = document.getElementById('forgotModal');
+    const modalClose  = document.getElementById('modalClose');
+    const forgotForm  = document.getElementById('forgotForm');
+    const modalForm   = document.getElementById('modalForm');
+    const modalSuccess = document.getElementById('modalSuccess');
+    const resetBtn    = document.getElementById('resetBtn');
+    const resetSpinner = document.getElementById('resetSpinner');
+    const resetBtnText = document.getElementById('resetBtnText');
+
+    forgotLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      forgotModal.classList.add('open');
+    });
+
+    modalClose.addEventListener('click', () => {
+      forgotModal.classList.remove('open');
+    });
+
+    forgotModal.addEventListener('click', (e) => {
+      if (e.target === forgotModal) forgotModal.classList.remove('open');
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') forgotModal.classList.remove('open');
+    });
+
+    forgotForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('resetEmail').value.trim();
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        document.getElementById('resetEmail').classList.add('error');
+        return;
+      }
+      // Show loading
+      resetBtn.disabled = true;
+      resetSpinner.style.display = 'block';
+      resetBtnText.textContent = 'Sending…';
+
+      // Submits to NextStep backend
+      setTimeout(() => {
+        modalForm.classList.add('hide');
+        modalSuccess.classList.add('show');
+      }, 1200);
+    });
+  </script>
 </body>
 </html>

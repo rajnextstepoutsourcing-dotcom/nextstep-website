@@ -5,230 +5,189 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — NextStep Compliance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-:root{
-  --bg:#07101d;--bg2:#0c1728;--panel:#0d1b31;--panel2:#112240;--border:rgba(255,255,255,.10);
-  --text:#eef4ff;--muted:#a7b7d1;--muted2:#6f86a8;--primary:#3b82f6;--primary2:#60a5fa;
-  --green:#22c55e;--amber:#f59e0b;--danger:#ef4444;--shadow:0 20px 60px rgba(0,0,0,.35);
-  --radius:18px;--max:1180px;--font-head:'Sora',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;
-}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{
-  margin:0;font-family:var(--font-body);color:var(--text);background:
-  radial-gradient(circle at top left, rgba(59,130,246,.18), transparent 30%),
-  radial-gradient(circle at top right, rgba(37,99,235,.14), transparent 24%),
-  linear-gradient(180deg, var(--bg), #050b15 70%);
-  line-height:1.6;
-}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-.container{width:min(var(--max), calc(100% - 2rem)); margin:0 auto}
-.site-header{position:sticky;top:0;z-index:50;background:rgba(7,16,29,.78);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
-.brand{display:flex;align-items:center;gap:.8rem;font-family:var(--font-head);font-weight:700;letter-spacing:.2px}
-.brand-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#0ea5e9);display:grid;place-items:center;box-shadow:0 10px 30px rgba(59,130,246,.28);font-weight:800}
-.brand small{display:block;font-family:var(--font-body);font-size:.74rem;color:var(--muted)}
-.nav-links{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap}
-.nav-links a{color:var(--muted);font-weight:500}
-.nav-links a:hover{color:var(--text)}
-.btn,.btn-ghost,.btn-danger{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:12px;
-  padding:.85rem 1.15rem;font-weight:700;border:1px solid transparent;transition:.2s ease;cursor:pointer
-}
-.btn{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;box-shadow:0 12px 28px rgba(59,130,246,.22)}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
-.btn-ghost{border-color:var(--border);color:var(--text);background:rgba(255,255,255,.03)}
-.btn-ghost:hover{background:rgba(255,255,255,.06)}
-.btn-danger{background:#7f1d1d;color:#fff}
-.hero{padding:4.5rem 0 3rem}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
-.kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .7rem;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.26);color:#d7e8ff;font-weight:600;font-size:.9rem}
-.hero h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.05;margin:1rem 0}
-.hero p.lead{font-size:1.08rem;color:var(--muted);max-width:62ch}
-.cta-row{display:flex;gap:.9rem;flex-wrap:wrap;margin:1.5rem 0 1rem}
-.meta-row{display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.94rem}
-.grid3,.grid4,.grid2{display:grid;gap:1rem}
-.grid4{grid-template-columns:repeat(4,1fr)} .grid3{grid-template-columns:repeat(3,1fr)} .grid2{grid-template-columns:repeat(2,1fr)}
-.card{background:linear-gradient(180deg, rgba(17,34,64,.86), rgba(11,24,45,.86));border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;box-shadow:var(--shadow)}
-.card h3{font-family:var(--font-head);margin:.2rem 0 .6rem}
-.card p{color:var(--muted);margin:.2rem 0}
-.section{padding:1.4rem 0 3rem}
-.section h2{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.5rem);margin:0 0 .55rem}
-.section .sub{color:var(--muted);max-width:70ch;margin:0 0 1.2rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
-.stat{padding:1rem 1.1rem;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--border)}
-.stat strong{display:block;font-family:var(--font-head);font-size:1.35rem;margin-bottom:.25rem}
-.feature-list,.clean-list{margin:.8rem 0 0;padding-left:1.1rem;color:var(--muted)}
-.feature-list li,.clean-list li{margin:.45rem 0}
-.tool-tag{display:inline-flex;padding:.3rem .55rem;border-radius:999px;background:rgba(59,130,246,.15);border:1px solid rgba(96,165,250,.22);color:#d9eaff;font-size:.82rem;font-weight:600}
-.checks{display:grid;gap:.8rem}
-.check{display:flex;gap:.7rem;align-items:flex-start}
-.check i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:999px;background:rgba(34,197,94,.15);color:#8bffb1;font-style:normal;font-weight:800;flex:0 0 auto}
-.note{padding:1rem 1.1rem;border-left:3px solid var(--primary);background:rgba(59,130,246,.08);border-radius:12px;color:#dce8ff}
-.callout{padding:1.1rem 1.2rem;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
-.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.field{display:grid;gap:.45rem}
-label{font-weight:600;color:#dfe9f9}
-input,select,textarea{
-  width:100%;border-radius:12px;border:1px solid var(--border);background:#081222;color:var(--text);
-  padding:.92rem 1rem;font:inherit
-}
-textarea{min-height:120px;resize:vertical}
-small.muted, .muted{color:var(--muted)}
-footer{padding:2.2rem 0 3rem;border-top:1px solid rgba(255,255,255,.06);margin-top:2rem}
-.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:1.5rem}
-.footer-links{display:grid;gap:.5rem}
-.footer-links a{color:var(--muted)}
-.footer-links a:hover{color:var(--text)}
-.notice{font-size:.9rem;color:var(--muted)}
-.badge-line{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
-.badge{display:inline-flex;align-items:center;gap:.35rem;border-radius:999px;padding:.4rem .7rem;background:rgba(255,255,255,.04);border:1px solid var(--border);color:#dce8ff;font-size:.85rem}
-.video-box{aspect-ratio:16/9;border-radius:18px;border:1px dashed rgba(96,165,250,.35);display:grid;place-items:center;background:linear-gradient(180deg,rgba(59,130,246,.08),rgba(255,255,255,.02));text-align:center;padding:1.4rem}
-.legal h3{font-family:var(--font-head);margin:1.35rem 0 .55rem}
-.legal p,.legal li{color:var(--muted)}
-.legal ul{padding-left:1.2rem}
-.auth-wrap{min-height:100vh;display:grid;place-items:center;padding:2rem 0}
-.auth-card{width:min(720px, calc(100% - 2rem));}
-.cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:80;display:none}
-.cookie-inner{width:min(920px,100%);margin:0 auto;padding:1rem 1.1rem;border-radius:18px;border:1px solid var(--border);background:rgba(6,13,24,.96);box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;justify-content:space-between}
-.cookie-actions{display:flex;gap:.7rem;flex-shrink:0}
-.hero-panel{padding:1.35rem}
-.icon-box{width:46px;height:46px;border-radius:14px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.22);display:grid;place-items:center;font-size:1.25rem}
-hr.sep{border:none;border-top:1px solid rgba(255,255,255,.06);margin:1.4rem 0}
-@media (max-width: 960px){
-  .hero-grid,.grid4,.grid3,.grid2,.stats,.footer-grid,.form-grid{grid-template-columns:1fr}
-  .nav{align-items:flex-start}
-  .nav-links{justify-content:flex-start}
-  .cookie-inner{display:grid}
-}
-</style>
+    :root {
+      --bg:#070a10;--bg2:#0b1220;--card:#0b1426;--border:rgba(255,255,255,.10);
+      --border2:rgba(255,255,255,.06);--text:#f2f6ff;--muted:#a9b6cc;--muted2:#6b7fa0;
+      --primary:#2563eb;--primary2:#3b82f6;--glow:rgba(37,99,235,.35);
+      --radius:14px;--radius-sm:10px;
+      --font-head:'Sora',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4;}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(7,10,16,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border2);}
+    .nav-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--primary),var(--primary2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 0 18px var(--glow);}
+    .logo-text{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.3px;}
+    .logo-text span{color:var(--primary2);}
+    .nav-back{font-size:13px;color:var(--muted);text-decoration:none;padding:7px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);transition:color .15s,border-color .15s;}
+    .nav-back:hover{color:var(--text);border-color:rgba(255,255,255,.22);}
+
+    .wrap{max-width:800px;margin:0 auto;padding:0 24px;position:relative;}
+
+    .page-hero{padding:70px 0 50px;}
+    .page-hero .label{font-size:12px;font-weight:600;color:var(--primary2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+    .page-hero h1{font-family:var(--font-head);font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em;margin-bottom:12px;}
+    .page-hero p{font-size:14px;color:var(--muted);}
+
+    .legal-body{padding:0 0 80px;}
+    .legal-section{margin-bottom:44px;}
+    .legal-section h2{font-family:var(--font-head);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border2);}
+    .legal-section p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:12px;}
+    .legal-section p:last-child{margin-bottom:0;}
+    .legal-section ul{font-size:14px;color:var(--muted);line-height:1.75;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .legal-section ul li{display:flex;align-items:flex-start;gap:8px;}
+    .legal-section ul li::before{content:'→';color:var(--primary2);flex-shrink:0;margin-top:1px;}
+    .legal-section a{color:var(--primary2);text-decoration:none;}
+    .legal-section a:hover{text-decoration:underline;}
+
+    .info-box{background:var(--card);border:1px solid rgba(37,99,235,.22);border-radius:var(--radius-sm);padding:20px 22px;margin-bottom:16px;}
+    .info-box p{font-size:13px;color:var(--muted);margin:0;}
+    .info-box strong{color:var(--text);}
+
+    footer{border-top:1px solid var(--border);background:var(--bg2);padding:28px 24px;text-align:center;}
+    footer p{font-size:13px;color:var(--muted2);}
+    footer a{color:var(--muted);text-decoration:none;margin:0 8px;}
+    footer a:hover{color:var(--text);}
   
+    .logo-icon, .login-logo-icon, .reg-logo-icon{display:flex;align-items:center;justify-content:center;font-size:0}
+    .logo-icon::before, .login-logo-icon::before, .reg-logo-icon::before{content:"🛡️";font-size:20px;line-height:1}
+    .logo-text span{color:var(--text)}
+
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <span class="brand-mark brand-shield" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
-      <span>NextStep Compliance<small>Healthcare Compliance Assistant</small></span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#tools">Tools</a>
-      <a href="about.html">About</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a class="btn-ghost" href="login.html">Log in</a>
-      <a class="btn" href="register.html">Request access</a>
-    </nav>
-  </div>
-</header>
-
-<section class="section legal">
-  <div class="container">
-    <h1 style="font-family:var(--font-head);font-size:clamp(2rem,4vw,3.1rem)">Privacy Policy</h1>
-    <p class="sub">Last updated: March 2026. This draft is written for a UK-focused healthcare compliance platform and should be reviewed again once your domain, company address and business email are finalised.</p>
-    <div class="card">
-      <h3>1. Who we are</h3>
-      <p>NextStep Compliance is a healthcare compliance automation platform operated by NextStep Outsourcing. Until the final domain and business email are in place, account and platform queries may be directed to raj.nextstepoutsourcing@gmail.com.</p>
-
-      <h3>2. What data we collect</h3>
-      <ul>
-        <li>Account details such as name, company, email address and phone number.</li>
-        <li>Usage information such as login sessions, jobs run, tools used and token consumption.</li>
-        <li>Documents and candidate-related information uploaded for checklist or verification workflows.</li>
-      </ul>
-
-      <h3>3. Why we collect it</h3>
-      <ul>
-        <li>To provide access to the platform and manage approvals.</li>
-        <li>To run healthcare compliance workflows requested by your organisation.</li>
-        <li>To maintain records of usage, security events and service administration.</li>
-      </ul>
-
-      <h3>4. Temporary storage and retention</h3>
-      <p>The platform is designed so temporary output files can be deleted after download rather than stored permanently. Operational records such as job history, account details and usage logs may remain in the database for administration, support, security and billing purposes.</p>
-
-      <h3>5. Legal basis</h3>
-      <p>Depending on the context, processing may be based on contract, legitimate interests, legal obligations or consent where required. Organisations using the platform remain responsible for ensuring they have an appropriate basis for submitting personal data for processing.</p>
-
-      <h3>6. Sharing</h3>
-      <p>We may use infrastructure and software providers to host the service, such as hosting, database, email or workflow service providers. We do not sell personal data.</p>
-
-      <h3>7. Security</h3>
-      <p>We take reasonable technical and organisational measures to protect data, including authenticated access, session controls and ownership checks within the platform workflow. No internet-based system can be guaranteed to be completely secure.</p>
-
-      <h3>8. Your rights</h3>
-      <p>If UK GDPR applies, you may have rights including access, rectification, erasure, restriction, objection and complaint to the Information Commissioner's Office where relevant.</p>
-
-      <h3>9. Contact</h3>
-      <p>For now, privacy-related contact can be directed to <a href="mailto:raj.nextstepoutsourcing@gmail.com" style="text-decoration:underline">raj.nextstepoutsourcing@gmail.com</a>. Replace this with your final business email before launch.</p>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span class="logo-text">Next<span>Step Compliance</span></span>
+      </a>
+      <a href="index.html" class="nav-back">← Back to Home</a>
     </div>
-  </div>
-</section>
+  </nav>
 
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <div class="brand" style="margin-bottom:.8rem">
-        <span class="brand-mark brand-shield" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
-        <span>NextStep Compliance<small>Designed for UK healthcare compliance workflows</small></span>
+  <div class="wrap">
+    <div class="page-hero">
+      <div class="label">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p>Last updated: 1 January 2026 &nbsp;·&nbsp; NextStep Compliance, Registered in England & Wales</p>
+    </div>
+
+    <div class="legal-body">
+
+      <div class="info-box">
+        <p><strong>Summary:</strong> We collect only what we need to provide our service. We never sell your data or candidate data. All data is stored securely in the UK. You have full rights over your data under UK GDPR.</p>
       </div>
-      <p class="notice">NextStep Compliance helps healthcare teams centralise NMC, DBS, right to work and onboarding profile checklist workflows in one system.</p>
-      <div class="badge-line">
-        <span class="badge">UK-focused</span>
-        <span class="badge">GDPR-aware</span>
-        <span class="badge">Secure workflow design</span>
+
+      <div class="legal-section">
+        <h2>1. Who We Are</h2>
+        <p>NextStep Compliance ("NextStep", "we", "us", "our") is a UK-based software company providing compliance automation tools for healthcare recruitment agencies. We are the data controller for the personal data we process in connection with our platform.</p>
+        <p>For any data protection queries, contact us at: <a href="mailto:privacy@nextstep.co.uk">privacy@nextstep.co.uk</a></p>
       </div>
+
+      <div class="legal-section">
+        <h2>2. What Data We Collect</h2>
+        <p>We collect the following categories of data:</p>
+        <ul>
+          <li><strong>Account data:</strong> your name, company name, email address, phone number, and password (hashed — never stored in plain text).</li>
+          <li><strong>Candidate data:</strong> name, date of birth, DBS certificate number, NMC PIN, share code, and other compliance-relevant details submitted by your team for verification purposes.</li>
+          <li><strong>Usage data:</strong> which tools you use, number of checks run, job submission timestamps, and token consumption records.</li>
+          <li><strong>Technical data:</strong> IP address, browser type, and access logs for security and fraud prevention purposes.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>3. How We Use Your Data</h2>
+        <ul>
+          <li>To provide and operate the NextStep platform and its tools.</li>
+          <li>To process compliance verification requests submitted by your team.</li>
+          <li>To manage your subscription, tokens, and billing.</li>
+          <li>To send service-related communications such as account confirmations and usage alerts.</li>
+          <li>To maintain platform security and detect fraud or abuse.</li>
+          <li>To comply with our legal obligations under UK law.</li>
+        </ul>
+        <p>We do not use your data or candidate data for marketing purposes, profiling, or any purpose not directly connected to delivering our service.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>4. Candidate Data — Special Obligations</h2>
+        <p>Our platform processes personal data about third-party individuals (candidates submitted by your agency). Your agency acts as the data controller for candidate data. NextStep acts as your data processor.</p>
+        <p>You are responsible for ensuring you have a lawful basis to submit candidate data to our platform and that candidates have been made aware of the processing where required by UK GDPR.</p>
+        <p>Candidate data is processed solely to fulfil the specific verification request. It is never shared with other customers, never used for any other purpose, and is isolated strictly to your company account.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>5. Data Storage and Security</h2>
+        <ul>
+          <li>All data is stored on UK-based or UK-compliant infrastructure.</li>
+          <li>Data is isolated per customer — no cross-tenant data access is technically possible.</li>
+          <li>All connections are encrypted in transit (HTTPS/TLS).</li>
+          <li>Passwords are hashed using industry-standard algorithms — we cannot read your password.</li>
+          <li>Access to data is role-controlled within your organisation.</li>
+          <li>Output files are stored in isolated per-job storage paths and are only accessible by authorised users in your account.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>6. Data Retention</h2>
+        <p>We retain your account data for as long as your subscription is active and for a reasonable period thereafter as required for legal or legitimate business purposes.</p>
+        <p>Job outputs and candidate data are retained for a period agreed at account setup or for a default period of 90 days after job completion, after which they are securely deleted.</p>
+        <p>You may request early deletion of any data by contacting us at <a href="mailto:privacy@nextstep.co.uk">privacy@nextstep.co.uk</a>.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>7. Your Rights Under UK GDPR</h2>
+        <p>As a data subject, you have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you.</li>
+          <li>Request correction of inaccurate or incomplete data.</li>
+          <li>Request deletion of your data ("right to be forgotten").</li>
+          <li>Restrict or object to processing of your data.</li>
+          <li>Data portability — receive your data in a machine-readable format.</li>
+          <li>Withdraw consent where processing is based on consent.</li>
+        </ul>
+        <p>To exercise any of these rights, contact <a href="mailto:privacy@nextstep.co.uk">privacy@nextstep.co.uk</a>. We will respond within 30 days.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>8. Third-Party Services</h2>
+        <p>We use a small number of trusted third-party services to operate our platform. These include hosting infrastructure and form submission services. We do not share personal data with advertising networks, data brokers, or analytics platforms.</p>
+        <p>Any third-party processors we use are bound by data processing agreements and UK GDPR obligations.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>9. Cookies</h2>
+        <p>We use only essential cookies required for session management and platform security. We do not use tracking, advertising, or analytics cookies. You may disable cookies in your browser settings, though this may affect platform functionality.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify active customers of material changes by email. The most current version will always be available at this URL.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>11. Contact and Complaints</h2>
+        <p>For any questions about this Privacy Policy or how we handle your data, contact us at <a href="mailto:privacy@nextstep.co.uk">privacy@nextstep.co.uk</a>.</p>
+        <p>If you believe we have not handled your data correctly, you have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank">ico.org.uk</a>.</p>
+      </div>
+
     </div>
-    <div class="footer-links">
-      <strong>Product</strong>
-      <a href="index.html#tools">Tools</a>
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#demo">Book a demo</a>
-      <a href="login.html">Log in</a>
-    </div>
-    <div class="footer-links">
-      <strong>Company & legal</strong>
-      <a href="about.html">About</a>
+  </div>
+
+  <footer>
+    <p>
+      © 2026 NextStep Compliance &nbsp;·&nbsp;
+      <a href="index.html">Home</a>
       <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="cookie-policy.html">Cookie Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="mailto:raj.nextstepoutsourcing@gmail.com">Contact</a>
-    </div>
-  </div>
-</footer>
-
-
-<div class="cookie-banner" id="cookie-banner">
-  <div class="cookie-inner">
-    <div>
-      <strong style="display:block;margin-bottom:.3rem">Cookies on NextStep Compliance</strong>
-      <div class="muted">We use essential cookies to keep login and session features working. We do not use advertising cookies on this website at the moment. See our <a href="cookie-policy.html" style="color:#dce8ff;text-decoration:underline">Cookie Policy</a>.</div>
-    </div>
-    <div class="cookie-actions">
-      <button class="btn-ghost" type="button" data-cookie-choice="reject">Reject non-essential</button>
-      <button class="btn" type="button" data-cookie-choice="accept">Accept</button>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  const key='complisure_cookie_pref_v1';
-  const banner=document.getElementById('cookie-banner');
-  if(!banner) return;
-  if(!localStorage.getItem(key)){ banner.style.display='block'; }
-  document.querySelectorAll('[data-cookie-choice]').forEach(btn=>{
-    btn.addEventListener('click', function(){
-      localStorage.setItem(key, this.getAttribute('data-cookie-choice'));
-      banner.style.display='none';
-    });
-  });
-})();
-</script>
+      <a href="terms.html">Terms</a>
+    </p>
+  </footer>
 
 </body>
 </html>
